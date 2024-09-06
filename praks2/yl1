@@ -1,0 +1,3 @@
+#!/bin/bash
+# Skript mis väljastab "Tere, 'kasutajanimi !'"
+echo "Tere, $(whoami)" ; echo \!

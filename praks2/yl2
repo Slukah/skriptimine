@@ -1,0 +1,7 @@
+#!/bin/bash
+
+DATE=$(date +"%D")
+TIME=$(date +"%H:%M")
+CALENDAR=$(ncal | tail -n 7)
+echo "Time is $DATE $TIME" 
+echo "$CALENDAR"

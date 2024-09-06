@@ -1,0 +1,15 @@
+#!/bin/bash
+#Harjutamine
+echo "The current directory is:"
+pwd
+echo "The user logged in is:"
+whoami
+# display user home
+
+echo "Home for the current user is: $HOME"
+# variable mis puudub saab forceida backslashiga (\)
+echo "I have \$1 in my pocket"
+# User variables
+grade=5
+person="Adam"
+echo "$person is a good boy, he is in grade $grade"

@@ -1,0 +1,7 @@
+#!/bin/bash
+# Küsi kasutaja ees- ja perenimi
+echo -n "Sisesta oma ees- ja perenimi: "
+read eesnimi perenimi
+
+# Väljasta tervitus
+echo "Tere tulemast, $eesnimi $perenimi"

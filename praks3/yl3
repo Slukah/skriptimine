@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Küsi kasutajalt ainepunktide ja nädalate arv
+echo -n "Sisesta ainepunktide arv: "
+read ainepunktid
+
+echo -n "Sisesta nädalate arv: "
+read nadalat
+
+# Arvuta koguaeg (ainepunktid * 26 tundi) ja nädala ajakulu
+aeg=$(echo "$ainepunktid * 26" | bc)
+ajakulu=$(echo "($aeg / $nadalat + 0.9)/1" | bc)
+
+# Väljasta tulemused
+echo "Ühe nädala eeldatav ajakulu on $ajakulu tundi."

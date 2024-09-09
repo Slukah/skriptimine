@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Muutuja 'aasta' väärtuseks on 2016
+aasta=2016
+
+# Muutuja 'president' väärtuseks on "Kersti Kaljulaid"
+president="Kersti Kaljulaid"
+
+# Muutuja 'lause_keskosa' väärtuseks on ". aastal valiti Eesti presidendiks "
+lause_keskosa=". aastal valiti Eesti presidendiks "
+
+# Ühendame muutujad üheks lauseks
+lause="$aasta$lause_keskosa$president"
+
+# Väljasta lause ekraanile
+echo "$lause"

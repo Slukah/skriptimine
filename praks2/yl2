@@ -4,7 +4,11 @@ DATE=$(date +"%D")
 #Teiseldus kellajale
 TIME=$(date +"%H:%M")
 #Teiseldus kalendrile
-CALENDAR=$(ncal | tail -n 7)
+CALENDAR=$(cal | tail -n 7)
 #Skript mis RETURNIB kalendri koos kuupäeva ja kellajaga
-echo "Time is $DATE $TIME" 
+echo
+echo "Today is $DATE"
+echo
+echo "Time is $TIME"
+echo
 echo "$CALENDAR"

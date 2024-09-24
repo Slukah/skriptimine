@@ -1,16 +1,23 @@
-#!/bin/bash
+# Küsi kasutajalt reisijate arvu ja kohtade arvu bussis
+read -p "Sisesta reisijate arv: " reisijad
+read -p "Sisesta kohtade arv ühes bussis: " kohad
 
-# Küsi kasutajalt reisijate arvu ja kohtade arvu ühes bussis
-echo -n "Sisesta reisijate arv: "
-read reisijad
+# Arvuta mitu täielikult täidetud bussi
+taidetud_bussid=$(( reisijad / kohad ))
 
-echo -n "Sisesta kohtade arv ühes bussis: "
-read kohad_bussis
+# Arvuta mitu inimest jääb maha (kui on inimesi, kes ei mahu täidetud bussidesse)
+maha_jaanud=$(( reisijad % kohad ))
 
-# Arvuta, mitu täis bussi on ja mitu inimest jääb maha
-tais_bussid=$((reisijad / kohad_bussis))
-ulejaanud=$((reisijad % kohad_bussis))
-
-# Väljasta tulemused
-echo "Täidetud busse: $tais_bussid"
-echo "Mahajäänud reisijate arv: $ulejaanud"
+# Kui reisijaid on vähem kui ühe bussi täismaht
+if [ "$reisijad" -le "$kohad" ]; then
+    echo "Täidetud busse: 1"
+    echo "Kõik reisijad mahuvad ühte bussi."
+# Kui kõik kohad on täidetud ja kedagi ei jää maha
+elif [ "$maha_jaanud" -eq 0 ]; then
+    echo "Täielikult täidetud busse: $taidetud_bussid"
+    echo "Kõik reisijad on mahutatud bussidesse!"
+# Kui on täidetud busse ja mõned reisijad jäävad maha
+else
+    echo "Täielikult täidetud busse: $taidetud_bussid"
+    echo "Mahajäänud reisijad: $maha_jaanud"
+fi

@@ -1,0 +1,35 @@
+#!/bin/bash
+# Küsib kataloogi nime/asukohta
+echo -n "Sisesta kataloogi asukoht/nimi: "
+read directory
+
+# Kontrollib, kas kataloog on olemas
+if [ ! -d "$directory" ]; then
+    echo "Viga: $directory nimelist kataloogi ei leitud!"
+    exit 1
+fi
+
+# Liigub määratud kataloogi
+cd "$directory" || exit
+
+file_count=0
+dir_count=0
+link_count=0
+
+# Loob iga elemendi jaoks vastava kontrolli
+for item in *; do
+    if [ -L "$item" ]; then
+        echo "$item: link"
+        ((link_count++))
+    elif [ -f "$item" ]; then
+        echo "$item: fail"
+        ((file_count++))
+    elif [ -d "$item" ]; then
+        echo "$item: kataloog"
+        ((dir_count++))
+    fi
+done
+
+# Kuvab kokkuvõtte
+echo
+echo "Selles kataloogis on $file_count faili, $dir_count kataloogi ja $link_count linki."

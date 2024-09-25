@@ -1,0 +1,31 @@
+#!/bin/bash
+# Skripti nimi: kujund.sh
+# Autor: Teie Nimi
+# Kirjeldus: Skript küsib kasutajalt ridade arvu ja trükib kaks tagurpidi nurk-kolmnurka, mille sees on tühi kolmnurk.
+
+# Küsi kasutajalt ridade arv
+read -p "Palun sisestage kujundi ridade arv (min 3): " ridade_arv
+
+# Kontrolli, et ridade arv on vähemalt 3
+if [[ $ridade_arv -ge 3 ]]; then
+    for ((i = ridade_arv; i >= 1; i--)); do
+        # Prindi vasak kolmnurk
+        for ((j = 1; j <= i; j++)); do
+            echo -n "*"
+        done
+        
+        # Prindi tühikute osa
+        for ((j = 1; j <= 2 * (ridade_arv - i); j++)); do
+            echo -n " "  # kaks tühikut
+        done
+        
+        # Prindi parem kolmnurk
+        for ((j = 1; j <= i; j++)); do
+            echo -n "*"
+        done
+        
+        echo
+    done
+else
+    echo "Palun sisestage vähemalt 3 rida."
+fi

@@ -1,0 +1,13 @@
+#!/bin/bash
+# Skripti nimi: yl1.sh
+# Autor: Lukas Miguel Noorlaid
+# Kirjeldus: Skript tervitab sisselogitud kasutajat ja väljastab praeguse kuupäeva ja kellaaja.
+
+# Küsin kasutajalt nime
+kasutajanimi=$(whoami)
+
+# Tervitan kasutajat
+echo "Tere, $kasutajanimi!"
+
+# Väljastan kuupäeva ja kellaaja
+echo "Täna on $(date +'%d.%m.%Y') kell $(date +'%H:%M')"
